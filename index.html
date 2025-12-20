@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mota Suprimentos</title>
+
+<style>
+:root{
+  --bg:#0b0d12;
+  --card:#151a2e;
+  --accent:#4cc9f0;
+  --accent2:#7b2cff;
+  --text:#e6e9f2;
+  --muted:#9aa3b2;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui}
+
+body{
+  background:radial-gradient(900px 400px at 10% -10%,#1a1f3b,transparent),
+             radial-gradient(700px 400px at 90% 10%,#1b3a4b,transparent),
+             var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+header{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:2rem;
+  position: relative; /* Para posicionar a seta */
+}
+
+h1{
+  font-size:clamp(2.8rem,5vw,4rem);
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:glow 3s ease-in-out infinite alternate;
+}
+
+.subtitle{
+  max-width:750px;
+  color:var(--muted);
+  font-size:1.15rem;
+  margin:1.5rem 0 2.8rem;
+  line-height:1.7;
+  animation:fadeUp 1.2s ease forwards;
+}
+
+.buttons{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-bottom: 4rem; /* Espaço antes da seta */
+}
+
+.btn{
+  padding:.9rem 1.9rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(135deg,rgba(76,201,240,.15),rgba(123,44,255,.15));
+  color:var(--text);
+  cursor:pointer;
+  text-decoration:none;
+  transition:.4s;
+  backdrop-filter:blur(10px);
+}
+
+.btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 0 25px rgba(76,201,240,.35);
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent);
+  font-size: 2.5rem;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.scroll-down:hover {
+  opacity: 1;
+}
+
+.scroll-down::after {
+  content: '↓';
+}
+
+/* Animação suave de pulso para baixo */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(5px);
+  }
+}
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:5rem 1.5rem;
+}
+
+section h2{
+  text-align:center;
+  font-size:2.3rem;
+  margin-bottom:1rem;
+}
+
+.desc{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 3rem;
+  color:var(--muted);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.8rem;
+}
+
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.04),transparent);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;
+  padding:2rem;
+  transition:.4s;
+  position:relative;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+.card h3{margin-bottom:.8rem}
+.card p{color:var(--muted);line-height:1.6}
+
+.badge{
+  margin-top:4rem;
+  text-align:center;
+  font-size:1.1rem;
+  color:var(--accent);
+  animation:pulse 2.5s infinite;
+}
+
+footer{
+  text-align:center;
+  padding:3rem;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:var(--muted);
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 10px rgba(76,201,240,.3)}
+  to{text-shadow:0 0 30px rgba(123,44,255,.6)}
+}
+
+@keyframes pulse{
+  0%,100%{opacity:.6}
+  50%{opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<script>
+const FRASE_PRINCIPAL = "Especialistas em manutenção de impressoras EPSON e fornecimento de produtos como almofadas, tintas e chips de qualidade, garantindo desempenho, durabilidade e confiança para o seu equipamento.";
+</script>
+
+<header>
+  <h1>Mota Suprimentos</h1>
+  <p class="subtitle" id="frase"></p>
+
+  <div class="buttons">
+    <a class="btn" href="https://wa.link/rxd243" target="_blank">Entrar em Contato</a>
+    <a class="btn" href="saiba-mais.html">Saiba Mais</a>
+  </div>
+
+  <!-- SINALIZADOR DE SCROLL -->
+  <div class="scroll-down" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})"></div>
+</header>
+
+<section>
+  <h2>Excelência que gera confiança</h2>
+  <p class="desc">
+    Empresa reconhecida pela qualidade, atendimento técnico especializado
+    e confiança conquistada por milhares de clientes satisfeitos.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Qualidade Comprovada</h3>
+      <p>Processos técnicos rigorosos e peças de confiança garantem resultados superiores.</p>
+    </div>
+
+    <div class="card">
+      <h3>Aprovada por Milhares</h3>
+      <p>Centenas de atendimentos mensais e alto índice de satisfação.</p>
+    </div>
+
+    <div class="card">
+      <h3>Referência em Manaus</h3>
+      <p>Reconhecida na cidade como especialista em impressoras EPSON.</p>
+    </div>
+  </div>
+
+  <div class="badge">
+    ★★★★★ Qualidade reconhecida por clientes reais
+  </div>
+</section>
+
+<footer>
+  © 2025 • Mota Suprimentos • Manaus - AM
+</footer>
+
+<script>
+document.getElementById("frase").innerText = FRASE_PRINCIPAL;
+</script>
+
+</body>
+</html>
