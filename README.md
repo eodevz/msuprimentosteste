@@ -6,7 +6,7 @@ Este projeto foi desenvolvido como um ambiente experimental e demonstrativo, com
 # 🧪 Sobre o Teste
 ⏱️ Duração: este teste permanecerá ativo por pelo menos 120 horas<br>
 🎨 Objetivo: avaliar layout, identidade visual e estrutura inicial do website<br>
-👀 Acesso: sinta-se à vontade para explorar, testar e visualizar o design proposto<br>
+👀 Acesso: sinta-se à vontade para explorar, testar e ver o design.<br>
 
 # 👨‍💻 Time de Desenvolvimento
 Hazze’s Domain<br>
