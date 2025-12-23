@@ -28,6 +28,10 @@ body{
   min-height: 100vh;
 }
 
+html {
+  user-select: none;
+}
+
 /* ===== HEADER ===== */
 header{
   text-align:center;
@@ -117,13 +121,13 @@ section h2{
 
 .reviews-track{
   display:flex;
-  gap:1.5rem; /* Reduzido um pouco para mobile */
+  gap:1.5rem;
   padding: 0 1rem;
   will-change:transform;
 }
 
 .review{
-  flex: 0 0 280px; /* Menor em mobile */
+  flex: 0 0 280px;
   background:var(--card);
   border-radius:16px;
   padding:1.6rem;
@@ -144,8 +148,8 @@ section h2{
 .stars{
   color:var(--accent);
   margin-bottom:.8rem;
-  letter-spacing:2px;
-  font-size:1.1rem;
+  letter-spacing:3px;
+  font-size:1.25rem;
 }
 
 .review p{
@@ -154,7 +158,7 @@ section h2{
   line-height:1.5;
 }
 
-/* ===== BOTÃO VOLTAR - MOBILE FRIENDLY ===== */
+/* ===== BOTÃO VOLTAR ===== */
 .back-btn {
   position: fixed;
   bottom: 20px;
@@ -185,58 +189,22 @@ section h2{
   font-size: 1.3rem;
 }
 
-/* ===== RESPONSIVIDADE ESPECÍFICA PARA CELULAR ===== */
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
-  header {
-    padding: 3.5rem 1rem 2.5rem;
-  }
-
-  header p {
-    font-size: 1rem;
-    padding: 0 0.5rem;
-  }
-
-  section {
-    padding: 3.5rem 1rem;
-  }
-
-  .grid {
-    gap: 1.5rem;
-  }
-
-  .card {
-    padding: 1.8rem 1.5rem;
-  }
-
-  .review {
-    flex: 0 0 260px;
-    padding: 1.4rem;
-  }
-
-  .reviews-track {
-    gap: 1.2rem;
-  }
-
-  .back-btn {
-    bottom: 15px;
-    right: 15px;
-    padding: 12px 20px;
-    font-size: 0.95rem;
-  }
+  header { padding: 3.5rem 1rem 2.5rem; }
+  header p { font-size: 1rem; padding: 0 0.5rem; }
+  section { padding: 3.5rem 1rem; }
+  .grid { gap: 1.5rem; }
+  .card { padding: 1.8rem 1.5rem; }
+  .review { flex: 0 0 260px; padding: 1.4rem; }
+  .reviews-track { gap: 1.2rem; }
+  .back-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 0.95rem; }
 }
 
 @media (max-width: 480px) {
-  header h1 {
-    font-size: clamp(2.2rem, 9vw, 3rem);
-  }
-
-  .review {
-    flex: 0 0 240px;
-  }
-
-  .section-desc {
-    font-size: 0.95rem;
-  }
+  header h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .review { flex: 0 0 240px; }
+  .section-desc { font-size: 0.95rem; }
 }
 
 /* ===== REVEAL ===== */
@@ -305,7 +273,7 @@ section h2{
   </div>
 </section>
 
-<!-- BOTÃO PARA VOLTAR AO INDEX -->
+<!-- BOTÃO PARA VOLTAR -->
 <button class="back-btn" onclick="window.location.href='index.html'">
   Voltar ao Início
 </button>
@@ -317,15 +285,38 @@ const REVIEWS = [
   ["Maria","Minha impressora ficou como nova.",4.5],
   ["Carlos","Muito profissionais, recomendo.",5],
   ["Ana","Ótima qualidade nas tintas.",4],
-  ["Tulio","Boa pai, mandou muito no serviço, nota 50000 hahaha!",5]
+  ["Pedro","Serviço eficiente e preço justo.",5],
+  ["Luiza","Atendimento excelente, superaram minhas expectativas.",4.5],
+  ["Rafael","Minha impressora voltou a funcionar perfeitamente.",5],
+  ["Fernanda","Tintas de alta qualidade, vale a pena.",4],
+  ["Lucas","Equipe muito atenciosa e competente.",5],
+  ["Beatriz","Recomendo para todos que precisam de manutenção.",4.5],
+  ["Gabriel","Serviço rápido e eficaz, fiquei satisfeito.",5],
+  ["Camila","Tintas duram bastante, ótima compra.",4],
+  ["Diego","Profissionais experientes, resolveram meu problema.",5],
+  ["Juliana","Atendimento personalizado, adorei.",4.5],
+  ["Marcos","Minha impressora está funcionando melhor do que nunca.",5],
+  ["Patrícia","Tintas com cores vibrantes, superou minhas expectativas.",4],
+  ["Felipe","Serviço impecável, voltarei sempre.",5],
+  ["André","Minha impressora está como nova, obrigado!",5],
+  ["Mayra", "Impressora ficou zerada, muito bom o serviço, 10/10", 5]
 ];
 
-function estrelas(qtd){
+/* ===== FUNÇÃO DE ESTRELAS COM MEIA ESTRELA ===== */
+function estrelas(qtd) {
   let html = "";
-  for(let i = 1; i <= 5; i++){
-    if(qtd >= i) html += "★";
-    else if(qtd >= i - 0.5) html += "☆";
-    else html += "✩";
+  const cheia = "★";
+  const meia = "☆";   // Meia estrela (metade preenchida)
+  const vazia = "✩";  // Estrela vazia
+
+  for (let i = 1; i <= 5; i++) {
+    if (qtd >= i) {
+      html += cheia;
+    } else if (qtd >= i - 0.5) {
+      html += meia;
+    } else {
+      html += vazia;
+    }
   }
   return html;
 }
@@ -346,19 +337,18 @@ function renderReviews(){
 
 renderReviews();
 
-/* ===== ESTEIRA INFINITA - AJUSTE DINÂMICO PARA MOBILE ===== */
+/* ===== ESTEIRA INFINITA ===== */
 let speed = window.innerWidth < 768 ? 0.4 : 0.5;
 let position = 0;
 
 function getSingleSetWidth() {
   const cardWidth = window.innerWidth < 480 ? 240 : (window.innerWidth < 768 ? 260 : 280);
-  const gap = window.innerWidth < 768 ? 20 : 24; // approx 1.2rem a 1.5rem
+  const gap = window.innerWidth < 768 ? 20 : 24;
   return cardWidth * REVIEWS.length + gap * (REVIEWS.length + 1);
 }
 
 function animate() {
   const setWidth = getSingleSetWidth();
-
   position -= speed;
 
   if (Math.abs(position) >= setWidth) {
@@ -371,12 +361,11 @@ function animate() {
 
 animate();
 
-// Ajusta velocidade e largura ao redimensionar a tela
 window.addEventListener('resize', () => {
   speed = window.innerWidth < 768 ? 0.4 : 0.5;
 });
 
-/* ===== CONTADOR COM DESACELERAÇÃO SUAVE ===== */
+/* ===== CONTADOR ===== */
 const counters = document.querySelectorAll(".counter");
 const counterObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
