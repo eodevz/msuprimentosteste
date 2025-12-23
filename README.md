@@ -27,5 +27,5 @@ Qualquer indivíduo identificado realizando uso indevido ou roubo de ativos esta
 # 📌 Considerações Finais
 Agradecemos seu interesse e compreensão.<br>
 Este repositório representa apenas uma fase inicial do projeto e pode sofrer alterações, remoções ou encerramento sem aviso prévio.<br>
-
+---
 **Mota Suprimentos, 2025 — Todos os direitos reservados.**
