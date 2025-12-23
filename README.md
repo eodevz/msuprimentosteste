@@ -14,7 +14,7 @@ Responsável pelo conceito visual, desenvolvimento e implementação inicial do 
 
 # ⚠️ Aviso Legal
 
-Este projeto contém ativos proprietários, incluindo, mas não se limitando a:<br>
+Este projeto contém ativos proprietários, **incluindo**, mas **não se limitando** a:<br>
 Design visual<br>
 Estrutura do website<br>
 Elementos gráficos e conceituais.<br><br>
