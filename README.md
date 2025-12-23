@@ -17,8 +17,8 @@ Responsável pelo conceito visual, desenvolvimento e implementação inicial do 
 Este projeto contém ativos proprietários, incluindo, mas não se limitando a:<br>
 Design visual<br>
 Estrutura do website<br>
-Elementos gráficos e conceituais<br>
-🚫 É estritamente proibido copiar, redistribuir ou reutilizar qualquer ativo deste projeto sem autorização prévia.<br>
+Elementos gráficos e conceituais.<br><br>
+**🚫 É estritamente proibido copiar, redistribuir ou reutilizar qualquer ativo deste projeto sem autorização prévia.**<br>
 Qualquer indivíduo identificado realizando uso indevido ou roubo de ativos estará sujeito a:<br>
 
 - **DMCA Takedown**<br>
