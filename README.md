@@ -1,6 +1,6 @@
 # 🚀 Mota Suprimentos — Website Teste Oficial
 
-Bem-vindo ao repositório de teste oficial do website da Mota Suprimentos.
+Bem-vindo ao repositório de teste oficial do website da Mota Suprimentos.<br>
 Este projeto foi desenvolvido como um ambiente experimental e demonstrativo, com o objetivo de apresentar o primeiro design conceitual criado pelo time de desenvolvimento Hazze’s Domain.
 
 # 🧪 Sobre o Teste
